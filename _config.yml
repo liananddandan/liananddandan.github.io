@@ -103,10 +103,6 @@ theme: polarbear
 deploy:
   type: ''
 
-auto_excerpt:
-  enable: true
-  length: 150 
-
 archive_generator:
     per_page: 0
     yearly: false
