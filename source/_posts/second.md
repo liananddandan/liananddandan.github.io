@@ -4,6 +4,7 @@ date: 2025-11-05 15:21:25
 categories:
  - second
 tags:
+ - test2
 ---
 # 这是我第二篇文章
 sdflkjflskjdflk
