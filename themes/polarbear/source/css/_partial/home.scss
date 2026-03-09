@@ -1,0 +1,9 @@
+// 首页文章标题 hover
+.home .post-title .post-link {
+  display: inline-block;
+  transition: $archive-post-hover-transition;
+}
+.home .post-title .post-link:hover {
+  transform: $archive-post-hover-transform;
+  color: $theme-color;
+}

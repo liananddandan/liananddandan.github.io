@@ -1,0 +1,73 @@
+// ==============================
+// Custom style
+// ==============================
+// You can override the variables in _variables.scss to customize the style
+/* 顶部站点标题（左上角） */
+/* 让标题和副标题在一行对齐 */
+.site-title{
+  display:flex;               /* 标题容器横排 */
+  align-items:baseline;       /* 基线对齐更好看 */
+  gap:.5rem;                  /* 标题与副标题间距 */
+  margin:0;
+}
+
+/* 标题变大，但不改颜色 */
+.site-title .logo{
+  font-size: 2rem;            /* 你可调成 1.8~2.2 rem */
+  line-height:1.15;
+  font-weight:inherit;
+  color: inherit;             /* 继承原色，不改变主题色 */
+  text-decoration:none;
+  transition: none !important;   /* 关闭任何动画/过渡 */
+}
+
+/* 悬浮时切换为主题色（无动画） */
+.site-title .logo:hover,
+.site-title .logo:focus {
+  color: $theme-color;           /* 用主题色 */
+  transition: none !important;   /* 再次确保不触发过渡 */
+}
+
+/* 副标题更小、同色，稍微淡一点可读性更好 */
+.site-subtitle-inline{
+  margin-left: 5px;
+  font-size:.8rem;           /* 更小字号 */
+  opacity:.7;                 /* 可选：略淡 */
+  white-space:nowrap;         /* 防止换到下一行 */
+}
+
+/* 移动端略微缩小标题 */
+@media (max-width:640px){
+  .site-title .logo{ font-size:1.6rem; }
+}
+
+/* 如果 custom.scss 里还没能用到 $theme-color，就取消下一行注释 */
+// @import "../variables";
+
+/* 仅作用于导航菜单 hover，不改默认颜色/布局/间距 */
+#nav-top .nav-top-items .menu-item > a:hover,
+#nav-top .nav-top-items .menu-item > a:focus {
+  color: $theme-color;        /* 若无此变量，可改成 var(--theme-color) 或具体色值 */
+  text-decoration: none;      /* 可要可不要；去下划线 */
+}
+
+
+/* 仅留言页生效：确保你的 <article> 有 page-guestbook 这个类 */
+.page-guestbook .post,
+.page-guestbook .post-content {
+  overflow: visible !important;         /* 父容器别裁切 */
+}
+
+.page-guestbook #cusdis_thread {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.page-guestbook #cusdis_thread iframe {
+  display: block;
+  width: 100% !important;
+  height: auto !important;              /* 允许自适应 */
+  max-height: none !important;          /* 解除主题里可能加的限高 */
+  min-height: 560px;                    /* 兜底：首屏别太矮 */
+  overflow: visible !important;         /* 某些主题会给 iframe 也设滚动，去掉 */
+}

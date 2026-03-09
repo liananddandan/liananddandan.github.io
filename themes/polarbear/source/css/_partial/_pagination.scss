@@ -1,0 +1,84 @@
+// ==============================
+// Pagination
+// ==============================
+/* 让分页导航和统计信息在同一行 */
+/* 外层容器允许绝对定位 */
+.pagination-wrapper {
+  position: relative;
+  margin-top: 1.2rem;
+}
+
+/* 把中间那句强制居中覆盖在导航上方这一行 */
+.pagination-info {
+  position: absolute;
+  left: 50%;
+  top: 0;                     /* 和上一行同高 */
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-size: $pagination-font-size;
+  font-family: $global-font-family;
+  font-weight: 400;
+  color: #666;
+  pointer-events: none;       /* 不挡左右按钮点击 */
+}
+
+/* 给导航一个最小高度，避免被覆盖时显得拥挤 */
+.pagination {
+  min-height: 2rem;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;  /* 两端对齐 */
+  align-items: center;             /* 垂直居中 */
+  flex-wrap: wrap;                 /* 容器太窄时自动换行 */
+  margin-top: 1.2rem;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* 让 prev/next 不漂移 */
+.pagination-wrapper .pagination {
+  flex: 1;
+}
+
+/* 让中间那段 Showing ... 居中 */
+.pagination-info {
+  flex-shrink: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pagination {
+  padding-bottom: $pagination-padding;
+  @include clearfix;
+
+  .prev,
+  .next {
+    font-weight: 400;
+    font-size: $pagination-font-size;
+    font-family: $global-font-family;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+  }
+
+  .prev {
+    float: left;
+
+    &:hover {
+      color: $theme-color;
+      transform: translateX(-4px);
+    }
+  }
+
+  .next {
+    float: right;
+
+    &:hover {
+      color: $theme-color;
+      transform: translateX(4px);
+    }
+  }
+}
